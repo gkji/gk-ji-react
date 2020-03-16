@@ -3,21 +3,26 @@ import './App.css';
 import { open } from './components/modal-base';
 import 'antd/dist/antd.css';
 
-function App() {
+ class App extends React.Component {
 
-  const handleOpenModal = () => {
-    open({
-      title: '弹窗测试',
-      content: 'this is content',
-      width: 500
-    })
+  constructor(props) {
+    super(props)
+    this.value = 0
   }
 
-  return (
-    <div className="App">
-      <button onClick={handleOpenModal}>弹窗</button>
-    </div>
-  );
+  handleOpenModal = () => {
+   this.value ++
+   console.log(this.value)
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <button onClick={this.handleOpenModal}>弹窗</button>
+        {this.value}
+      </div>
+    );
+  }
 }
 
 export default App;
